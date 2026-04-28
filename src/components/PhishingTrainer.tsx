@@ -120,7 +120,7 @@ export default function PhishingTrainer() {
   const [shuffled, setShuffled] = useState<Scenario[]>([]);
 
   const startQuiz = useCallback(() => {
-    const s = [...SCENARIOS].sort(() => Math.random() - 0.5);
+    const s = [...SCENARIOS].sort(() => Math.random() - 0.5).slice(0, 5);
     setShuffled(s);
     setCurrentIndex(0);
     setScore(0);
@@ -176,10 +176,10 @@ export default function PhishingTrainer() {
             </div>
             <h2 style={{ marginBottom: 8 }}>Phishing <span className="gradient-text">Training</span></h2>
             <p style={{ color: 'var(--text-muted)', fontSize: 15, marginBottom: 32, maxWidth: 440, margin: '0 auto 32px' }}>
-              Can you spot the difference between a real message and a phishing attack? Test your skills with {SCENARIOS.length} real-world scenarios.
+              Can you spot the difference between a real message and a phishing attack? Test your skills with 5 real-world scenarios.
             </p>
             <div style={{ display: 'flex', gap: 24, justifyContent: 'center', marginBottom: 32, flexWrap: 'wrap' }}>
-              {[['10', 'Scenarios'], ['3', 'Difficulty Levels'], ['5', 'Channels']].map(([v, l]) => (
+              {[['5', 'Scenarios'], ['3', 'Difficulty Levels'], ['5', 'Channels']].map(([v, l]) => (
                 <div key={l} style={{ textAlign: 'center' }}>
                   <div style={{ fontSize: 22, fontWeight: 700, color: 'var(--text-primary)' }}>{v}</div>
                   <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>{l}</div>
