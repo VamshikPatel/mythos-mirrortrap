@@ -21,11 +21,11 @@ interface ChannelTab {
 }
 
 const CHANNELS: ChannelTab[] = [
-  { id: 'whatsapp', label: 'WhatsApp', icon: MessageSquare, color: '#25D366' },
-  { id: 'email', label: 'Email', icon: Mail, color: '#60a5fa' },
-  { id: 'sms', label: 'SMS', icon: Smartphone, color: '#f59e0b' },
-  { id: 'linkedin', label: 'LinkedIn', icon: Globe, color: '#0077B5' },
-  { id: 'call', label: 'Phone Call', icon: Phone, color: '#a78bfa' },
+  { id: 'whatsapp', label: 'WhatsApp', icon: MessageSquare, color: 'var(--text-primary)' },
+  { id: 'email', label: 'Email', icon: Mail, color: 'var(--text-primary)' },
+  { id: 'sms', label: 'SMS', icon: Smartphone, color: 'var(--text-primary)' },
+  { id: 'linkedin', label: 'LinkedIn', icon: Globe, color: 'var(--text-primary)' },
+  { id: 'call', label: 'Phone Call', icon: Phone, color: 'var(--text-primary)' },
 ];
 
 function adaptMessage(result: AttackResult, channel: string): { subject?: string; body: string; meta: string } {
@@ -137,12 +137,8 @@ export default function MultiChannelView({ result }: MultiChannelViewProps) {
         {/* Message body */}
         <div style={{
           padding: 16, borderRadius: 10,
-          background: activeChannel === 'whatsapp' ? '#1a2e1a' :
-                      activeChannel === 'call' ? 'rgba(167,139,250,0.05)' :
-                      'rgba(255,255,255,0.02)',
-          border: `1px solid ${activeChannel === 'whatsapp' ? 'rgba(37,211,102,0.15)' :
-                  activeChannel === 'call' ? 'rgba(167,139,250,0.15)' :
-                  'var(--border-subtle)'}`,
+          background: 'var(--bg-secondary)',
+          border: '1px solid var(--border-subtle)',
           fontSize: 14, lineHeight: 1.7, color: 'var(--text-secondary)',
           whiteSpace: 'pre-wrap', fontFamily: activeChannel === 'call' ? 'var(--font-mono)' : 'var(--font-sans)',
         }}>
@@ -152,8 +148,8 @@ export default function MultiChannelView({ result }: MultiChannelViewProps) {
         {/* Channel-specific warning */}
         <div style={{
           marginTop: 12, padding: 10, borderRadius: 6,
-          background: `${activeTab.color}08`, border: `1px solid ${activeTab.color}15`,
-          fontSize: 12, color: activeTab.color, lineHeight: 1.5,
+          background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)',
+          fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.5,
         }}>
           ⚠️ {activeChannel === 'email' && 'Always verify the sender\'s email domain matches the official company domain.'}
           {activeChannel === 'whatsapp' && 'Be wary of messages from unknown numbers claiming authority. Verify through official channels.'}

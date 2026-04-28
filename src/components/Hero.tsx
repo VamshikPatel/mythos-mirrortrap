@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import SecurityRadar from './SecurityRadar';
 
 /**

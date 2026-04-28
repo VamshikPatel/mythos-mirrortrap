@@ -2,7 +2,6 @@ import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 
-import Background from './components/Background';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AttackWizard from './components/AttackWizard';

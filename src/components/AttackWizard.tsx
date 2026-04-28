@@ -40,6 +40,7 @@ export default function AttackWizard({ onLaunch, loading }: WizardProps) {
         >
           <h2 style={{ marginBottom: 8 }}>
             Attack <span className="gradient-text">Simulator</span>
+            <ShieldCheck size={18} style={{ color: 'var(--text-primary)', marginLeft: 8 }} />
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: 15 }}>
             Build a target profile and watch AI craft a hyper-realistic attack
@@ -57,7 +58,7 @@ export default function AttackWizard({ onLaunch, loading }: WizardProps) {
           <select
             onChange={(e) => { const p = PRESETS[parseInt(e.target.value)]; if (p) setProfile(p); }}
             className="input-field"
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: 'pointer', color: 'var(--text-primary)' }}
           >
             <option value="">— Select a preset —</option>
             {PRESETS.map((p, i) => (
@@ -79,12 +80,12 @@ export default function AttackWizard({ onLaunch, loading }: WizardProps) {
                 <motion.div
                   animate={{ width: i <= step ? '100%' : '0%' }}
                   transition={{ duration: 0.4, ease: 'easeOut' }}
-                  style={{ height: '100%', background: 'var(--gradient-accent)', borderRadius: 2 }}
+                  style={{ height: '100%', background: 'var(--text-primary)', borderRadius: 2 }}
                 />
               </div>
               <div style={{
                 display: 'flex', alignItems: 'center', gap: 6, fontSize: 12,
-                color: i <= step ? 'var(--text-accent)' : 'var(--text-muted)',
+                color: i <= step ? 'var(--text-primary)' : 'var(--text-muted)',
                 fontWeight: i === step ? 600 : 400, transition: 'color 0.3s',
               }}>
                 <s.icon size={13} />
@@ -128,10 +129,10 @@ export default function AttackWizard({ onLaunch, loading }: WizardProps) {
                     onChange={(v) => update('connection', v)} />
                   <div style={{
                     padding: 16, borderRadius: 'var(--radius)',
-                    background: 'rgba(168,85,247,0.05)', border: '1px solid rgba(168,85,247,0.15)',
+                    background: 'var(--bg-secondary)', border: '1px solid var(--border-default)',
                     fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.6,
                   }}>
-                    <strong style={{ color: 'var(--text-accent)' }}>⚡ Ready to launch.</strong>{' '}
+                    <strong style={{ color: 'var(--text-primary)' }}>⚡ Ready to launch.</strong>{' '}
                     The AI will craft a realistic spear-phishing attack using these details to show you exactly how vulnerable this profile is.
                   </div>
                 </div>

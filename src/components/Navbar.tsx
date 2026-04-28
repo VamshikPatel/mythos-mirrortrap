@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Shield, History, Brain, Menu, X } from 'lucide-react';
+import { History, Brain, Menu, X } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
 interface NavbarProps {

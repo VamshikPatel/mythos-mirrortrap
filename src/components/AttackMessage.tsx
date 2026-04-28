@@ -48,17 +48,16 @@ export default function AttackMessage({ message, sender, goal }: AttackMessagePr
         {typed.displayed}
         {!typed.isComplete && (
           <motion.span animate={{ opacity: [1, 0] }} transition={{ repeat: Infinity, duration: 0.5 }}
-            style={{ color: '#22c55e' }}>▌</motion.span>
+            style={{ color: 'var(--text-primary)' }}>▌</motion.span>
         )}
       </div>
 
-      {/* Attacker goal */}
       <div style={{
         marginTop: 16, padding: 12, borderRadius: 'var(--radius)',
-        background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.15)',
+        background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)',
         fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.5,
       }}>
-        <strong style={{ color: '#fbbf24' }}>🎯 Attacker Goal:</strong> {goal}
+        <strong style={{ color: 'var(--text-primary)' }}>🎯 Attacker Goal:</strong> {goal}
       </div>
     </motion.div>
   );
