@@ -40,7 +40,6 @@ export default function AttackWizard({ onLaunch, loading }: WizardProps) {
         >
           <h2 style={{ marginBottom: 8 }}>
             Attack <span className="gradient-text">Simulator</span>
-            <ShieldCheck size={18} style={{ color: 'var(--text-primary)', marginLeft: 8 }} />
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: 15 }}>
             Build a target profile and watch AI craft a hyper-realistic attack
