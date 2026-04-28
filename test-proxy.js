@@ -4,7 +4,7 @@ async function test() {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       profile: {
-        name: "Vamshik",
+        name: "Suresh Kumar",
         role: "CS Student",
         organization: "NMIT Bengaluru",
         recentActivity: "TechFusion hackathon",
