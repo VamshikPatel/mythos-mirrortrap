@@ -37,7 +37,7 @@ export interface HistoryEntry {
 
 export const PRESETS: Profile[] = [
   {
-    name: 'Vamshik',
+    name: 'Suresh Kumar',
     role: 'CS Student',
     organization: 'NMIT Bengaluru',
     recentActivity: 'TechFusion hackathon',
