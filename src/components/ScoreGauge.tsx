@@ -17,12 +17,7 @@ export default function ScoreGauge({ score, verdict }: ScoreGaugeProps) {
   const circumference = 2 * Math.PI * radius;
   const progress = (score / 100) * circumference;
 
-  const getColor = () => {
-    if (score >= 70) return ['var(--text-primary)', 'var(--text-muted)'];
-    if (score >= 40) return ['var(--text-secondary)', 'var(--text-muted)'];
-    return ['var(--text-muted)', 'var(--border-default)'];
-  };
-  const [c1, c2] = getColor();
+
 
   const getLabel = () => {
     if (score >= 70) return 'High Exposure';

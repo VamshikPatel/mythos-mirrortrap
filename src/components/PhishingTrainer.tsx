@@ -160,10 +160,10 @@ export default function PhishingTrainer() {
 
   const getGrade = () => {
     const pct = (score / (shuffled.length * 25)) * 100;
-    if (pct >= 90) return { grade: 'A+', color: '#22c55e', msg: 'Security Expert! You\'re nearly untouchable.' };
-    if (pct >= 70) return { grade: 'B', color: '#3b82f6', msg: 'Good awareness. A few gaps to close.' };
-    if (pct >= 50) return { grade: 'C', color: '#f59e0b', msg: 'Moderate risk. Review the explanations carefully.' };
-    return { grade: 'D', color: '#ef4444', msg: 'High vulnerability. Regular training recommended.' };
+    if (pct >= 90) return { grade: 'A+', color: 'var(--text-primary)', msg: 'Security Expert! You\'re nearly untouchable.' };
+    if (pct >= 70) return { grade: 'B', color: 'var(--text-secondary)', msg: 'Good awareness. A few gaps to close.' };
+    if (pct >= 50) return { grade: 'C', color: 'var(--text-muted)', msg: 'Moderate risk. Review the explanations carefully.' };
+    return { grade: 'D', color: 'var(--border-accent)', msg: 'High vulnerability. Regular training recommended.' };
   };
 
   if (!started) {
@@ -171,8 +171,8 @@ export default function PhishingTrainer() {
       <section id="training" style={{ padding: '80px 24px 100px', position: 'relative', zIndex: 1 }}>
         <div style={{ maxWidth: 600, margin: '0 auto', textAlign: 'center' }}>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <div style={{ width: 64, height: 64, borderRadius: 16, background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
-              <Brain size={28} style={{ color: '#60a5fa' }} />
+            <div style={{ width: 64, height: 64, borderRadius: 16, background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
+              <Brain size={28} style={{ color: 'var(--text-primary)' }} />
             </div>
             <h2 style={{ marginBottom: 8 }}>Phishing <span className="gradient-text">Training</span></h2>
             <p style={{ color: 'var(--text-muted)', fontSize: 15, marginBottom: 32, maxWidth: 440, margin: '0 auto 32px' }}>
@@ -219,7 +219,7 @@ export default function PhishingTrainer() {
     );
   }
 
-  const diffColor = { easy: '#22c55e', medium: '#f59e0b', hard: '#ef4444' };
+  const diffColor = { easy: 'var(--text-secondary)', medium: 'var(--text-secondary)', hard: 'var(--text-primary)' };
 
   return (
     <section id="training" style={{ padding: '80px 24px 60px', position: 'relative', zIndex: 1 }}>
@@ -233,7 +233,7 @@ export default function PhishingTrainer() {
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-            {streak > 0 && <span style={{ fontSize: 13, color: '#f59e0b', fontWeight: 600 }}>🔥 {streak} streak</span>}
+            {streak > 0 && <span style={{ fontSize: 13, color: 'var(--text-primary)', fontWeight: 600 }}>🔥 {streak} streak</span>}
             <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>{score} pts</span>
           </div>
         </div>
@@ -244,7 +244,7 @@ export default function PhishingTrainer() {
             <div className="glass-card" style={{ padding: 24, marginBottom: 20 }}>
               {/* Channel + difficulty badges */}
               <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
-                <span style={{ fontSize: 11, fontWeight: 700, padding: '3px 10px', borderRadius: 999, background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.2)', color: '#c084fc', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                <span style={{ fontSize: 11, fontWeight: 700, padding: '3px 10px', borderRadius: 999, background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
                   {scenario.channel}
                 </span>
                 <span style={{ fontSize: 11, fontWeight: 700, padding: '3px 10px', borderRadius: 999, background: `${diffColor[scenario.difficulty]}15`, border: `1px solid ${diffColor[scenario.difficulty]}30`, color: diffColor[scenario.difficulty], letterSpacing: '0.05em', textTransform: 'uppercase' }}>
@@ -272,15 +272,15 @@ export default function PhishingTrainer() {
             {/* Answer buttons */}
             {!answered && (
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-                <button onClick={() => handleAnswer(false)} style={{ padding: 16, fontSize: 15, fontWeight: 600, color: '#22c55e', background: 'rgba(34,197,94,0.06)', border: '1px solid rgba(34,197,94,0.2)', borderRadius: 'var(--radius)', cursor: 'pointer', fontFamily: 'var(--font-sans)', transition: 'all 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(34,197,94,0.12)'; e.currentTarget.style.borderColor = 'rgba(34,197,94,0.4)'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(34,197,94,0.06)'; e.currentTarget.style.borderColor = 'rgba(34,197,94,0.2)'; }}
+                <button onClick={() => handleAnswer(false)} style={{ padding: 16, fontSize: 15, fontWeight: 600, color: 'var(--text-primary)', background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius)', cursor: 'pointer', fontFamily: 'var(--font-sans)', transition: 'all 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--bg-card-hover)'; e.currentTarget.style.borderColor = 'var(--border-default)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--bg-secondary)'; e.currentTarget.style.borderColor = 'var(--border-subtle)'; }}
                 >
                   <CheckCircle size={18} /> Legitimate
                 </button>
-                <button onClick={() => handleAnswer(true)} style={{ padding: 16, fontSize: 15, fontWeight: 600, color: '#ef4444', background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 'var(--radius)', cursor: 'pointer', fontFamily: 'var(--font-sans)', transition: 'all 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(239,68,68,0.12)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.4)'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(239,68,68,0.06)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.2)'; }}
+                <button onClick={() => handleAnswer(true)} style={{ padding: 16, fontSize: 15, fontWeight: 600, color: 'var(--text-primary)', background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius)', cursor: 'pointer', fontFamily: 'var(--font-sans)', transition: 'all 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--bg-card-hover)'; e.currentTarget.style.borderColor = 'var(--border-default)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--bg-secondary)'; e.currentTarget.style.borderColor = 'var(--border-subtle)'; }}
                 >
                   <Zap size={18} /> Phishing
                 </button>
@@ -291,10 +291,10 @@ export default function PhishingTrainer() {
             <AnimatePresence>
               {answered && (
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-                  <div style={{ padding: 16, borderRadius: 'var(--radius)', background: answered === 'correct' ? 'rgba(34,197,94,0.06)' : 'rgba(239,68,68,0.06)', border: `1px solid ${answered === 'correct' ? 'rgba(34,197,94,0.2)' : 'rgba(239,68,68,0.2)'}`, marginBottom: 16 }}>
+                  <div style={{ padding: 16, borderRadius: 'var(--radius)', background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', marginBottom: 16 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-                      {answered === 'correct' ? <CheckCircle size={18} style={{ color: '#22c55e' }} /> : <XCircle size={18} style={{ color: '#ef4444' }} />}
-                      <span style={{ fontSize: 15, fontWeight: 700, color: answered === 'correct' ? '#22c55e' : '#ef4444' }}>
+                      {answered === 'correct' ? <CheckCircle size={18} style={{ color: 'var(--text-primary)' }} /> : <XCircle size={18} style={{ color: 'var(--text-primary)' }} />}
+                      <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-primary)' }}>
                         {answered === 'correct' ? 'Correct!' : 'Incorrect'}
                       </span>
                       <span style={{ fontSize: 13, color: 'var(--text-muted)', marginLeft: 'auto' }}>
@@ -307,7 +307,7 @@ export default function PhishingTrainer() {
                         {scenario.redFlags.length > 0 && (
                           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 8 }}>
                             {scenario.redFlags.map((flag, i) => (
-                              <span key={i} style={{ fontSize: 11, padding: '2px 8px', borderRadius: 999, background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', color: '#fca5a5' }}>
+                              <span key={i} style={{ fontSize: 11, padding: '2px 8px', borderRadius: 999, background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }}>
                                 🚩 {flag}
                               </span>
                             ))}
